@@ -1,0 +1,53 @@
+<form class="form-inline">
+    <legend>List users</legend>
+    <div class=class="form-search">
+        <input type="text" ng-model="search" class="form-control" placeholder="Search">
+        <label>Search</label>
+    </div>
+    <br>
+    <div class="col-xs-4">
+        <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+        <label>Users per page:</label>
+    </div>
+</form>
+<table class="table table-hover">
+    <thead>
+    <br>
+    <tr bgcolor="lightgray">
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+        <td>Admin?</td>
+        <td>Created Date</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr dir-paginate="user in $ctrl.users | itemsPerPage:pageSize | filter:search">
+        <td>{{user.id}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.admin | lowercase}}</td>
+        <td>{{user.date | date : 'yyyy-MM-dd'}}</td>
+        <td>
+            <button class="btn btn-info" type="button" ng-click="$ctrl.edit(user.id)">Edit</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<p>
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.create()">Create User</button>
+</p>
+<dir-pagination-controls
+        max-size="5"
+        direction-links="true"
+        boundary-links="true">
+</dir-pagination-controls>
+
+
+
+
+

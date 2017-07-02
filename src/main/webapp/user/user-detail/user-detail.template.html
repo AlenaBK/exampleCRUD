@@ -1,0 +1,26 @@
+	<table class="table table-bordered">
+		<tr>
+			<td bgcolor="lightgray">First Name:</td>
+			<td><input ng-model="$ctrl.user.firstName"/></td>
+		</tr>
+		<tr>
+			<td bgcolor="lightgray">Last Name:</td>
+			<td><input ng-model="$ctrl.user.lastName"/></td>
+		</tr>
+		<tr>
+			<td bgcolor="lightgray">Age:</td>
+			<td><input ng-model="$ctrl.user.age"/></td>
+		</tr>
+		<tr>
+			<td bgcolor="lightgray">Admin?:</td>
+			<td><input style="text-transform: lowercase" ng-model="$ctrl.user.admin"/></td>
+		</tr>
+		<tr>
+			<td bgcolor="lightgray">Created Date</td>
+			<td><input type="date" id="date" ng-model="$ctrl.user.date"/></td>
+		</tr>
+	</table>
+	<button class="btn btn-primary" type="button" ng-show="!$ctrl.user.id" ng-click="$ctrl.save()">Save</button>
+	<button class="btn btn-info" type="button" ng-show="$ctrl.user.id" ng-click="$ctrl.update()">Update</button>
+	<button class="btn btn-info" type="button" ng-show="$ctrl.user.id" ng-click="$ctrl.delete()">Delete</button>
+	<button class="btn" type="button" ng-click="$ctrl.cancel()">Cancel</button>
